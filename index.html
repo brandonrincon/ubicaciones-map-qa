@@ -1,424 +1,442 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Render Data Points</title>
-    <meta name="description" content="Our first page">
-    <meta name="keywords" content="html tutorial template">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-</head>
+    <meta name="description" content="Our first page" />
+    <meta name="keywords" content="html tutorial template" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <style>
-        input {
-            margin: 0.5rem;
-            border-radius: 5px;
-            border-color: #adb9ec;
-            padding: 5px 10px;
-        }
+      input {
+        margin: 0.5rem;
+        border-radius: 5px;
+        border-color: #adb9ec;
+        padding: 5px 10px;
+      }
 
-        .btn {
-            border: none;
-            margin: 0.5rem;
-            display: inline-block;
-            font-weight: 700;
-            background-color: #4264fb;
-            font-size: 12px;
-            color: #fff;
-            border-radius: 18px;
-            padding: 6px 18px;
-            text-align: center;
-            -webkit-transition: background-color .125s, border-color .125s, color .125s;
-            transition: background-color .125s, border-color .125s, color .125s;
-        }
+      .btn {
+        border: none;
+        margin: 0.5rem;
+        display: inline-block;
+        font-weight: 700;
+        background-color: #4264fb;
+        font-size: 12px;
+        color: #fff;
+        border-radius: 18px;
+        padding: 6px 18px;
+        text-align: center;
+        -webkit-transition: background-color 0.125s, border-color 0.125s,
+          color 0.125s;
+        transition: background-color 0.125s, border-color 0.125s, color 0.125s;
+      }
     </style>
-    <section style="display: flex; justify-content: center; align-items: center;flex-flow: column-reverse;">
-        <div id='map' style='width: 600px; height: 600px;'></div>
-        <div style="display:flex;align-items:center;justify-content:center;flex-flow:row;margin-top: 3rem;">
-            <input id="lat" placeholder="latitud">
-            <input id="lng" placeholder="longitud">
-            <button onclick="agregarMarcador()" class="btn">Agregar Marcador</button>
-        </div>
-
+    <section
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column-reverse;
+      "
+    >
+      <div id="map" style="width: 600px; height: 600px"></div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-flow: row;
+          margin-top: 3rem;
+        "
+      >
+        <input id="lat" placeholder="latitud" />
+        <input id="lng" placeholder="longitud" />
+        <button onclick="agregarMarcador()" class="btn">
+          Agregar Marcador
+        </button>
+      </div>
     </section>
 
     <script>
+      const data = [
+        {
+          agency: "AMBATO",
+          department: "u53RSDyPhCASuSfjm",
+          address: "JUAN LEON MERA 624 SUCRE y BOLIVAR",
+          agency_head: "RODRIGUEZ CEDEÑO CONCEPCION CATALINA",
+          email: "ofcrambato4@baustro.fin.ec",
+          phone: 984279627,
+          latitude: -1.2414587,
+          longitude: -78.6285062,
+        },
+        {
+          agency: "AG. SUR AZOGUES",
+          department: "WknYuZiMC5AhQYtx",
+          address: "AV 24 DE MAYO S/N AV DE LOS ALCALDES",
+          agency_head: "PESANTEZ DIAZ KARINA ELIZABETH",
+          email: "jefeagazoguessur@baustro.fin.ec",
+          phone: 996893510,
+          latitude: 2.7478094,
+          longitude: 78.8474046,
+        },
+        {
+          agency: "CAÑAR",
+          department: "Py9ocucuyoJ2T4LvG",
+          address: "ELOY ALFARO S/N PICHINCHA",
+          agency_head: "FAJARDO MOROCHO KARLA ELIZABETH",
+          email: "ofcrsanantonio@baustro.fin.ec",
+          phone: 983086791,
+          latitude: -0.1465387238695554,
+          longitude: -78.4693587883034,
+        },
+        {
+          agency: "MATRIZ CUENCA",
+          department: "Jsf2t42DyjXdz8bBT",
+          address: "SUCRE ESQUINA BORRERO",
+          agency_head: "MULLO GONZALEZ PAUL EUSEBIO",
+          email: "jefeamatriz@baustro.fin.ec",
+          phone: 995962706,
+          latitude: -2.8983623,
+          longitude: -79.0035175,
+        },
+        {
+          agency: "EL VERGEL",
+          department: "842eLY8DfPYhWZpP8",
+          address: "MANUEL J CALLE ESQUINA AV DEL ESTADIO",
+          agency_head: "BRAVO BLANDIN ADRIAN ALEJANDRO",
+          email: "jefeagvergel@baustro.fin.ec",
+          phone: 984880376,
+          latitude: -2.907065,
+          longitude: -79.0051043,
+        },
+        {
+          agency: "GONZALEZ SUAREZ",
+          department: "kRWKsntupgoYomkWo",
+          address: "AV GONZALEZ SUAREZ ESQUINA CALLE ERNESTO GUEVARA",
+          agency_head: "ALVARADO GOMEZ DIANA ALEXANDRA",
+          email: "jefegsuarez@baustro.fin.ec",
+          phone: 984169881,
+          latitude: -2.8976831,
+          longitude: -78.9798473,
+        },
+        {
+          agency: "CHALLUABAMBA",
+          department: "pKc5zabahQNmNdtXj",
+          address: "AUTOPISTA CUENCA AZOGUES KM 9.5 SIN SECUNDARIA",
+          agency_head: "CORDERO ROMO JAVIER FRANCISCO",
+          email: "jefeachaullabamba@baustro.fin.ec",
+          phone: 995017460,
+          latitude: -2.854197,
+          longitude: -78.9168173,
+        },
+        {
+          agency: "DON BOSCO",
+          department: "KAFHXjh8n7YwaAifC",
+          address: "AV DON BOSCO S/N MIGUEL DE CERVANTES, ESQ",
+          agency_head: "NOVILLO BARROS ZOILA ADRIANA",
+          email: "jadonbosco@baustro.fin.ec",
+          phone: 998672479,
+          latitude: 0.03678602689908206,
+          longitude: -78.4811632339963,
+        },
+        {
+          agency: "GRAN COLOMBIA",
+          department: "S84rJ42ZLjdLvqZqT",
+          address: "AV GRAN COLOMBIA 22269 UNIDAD NACIONAL",
+          agency_head: "BARNUEVO ROMERO VANESSA GIOMANY",
+          email: "jagrancolombia@baustro.fin.ec",
+          phone: 999299105,
+          latitude: -2.8921502,
+          longitude: -79.0205304,
+        },
+        {
+          agency: "ESMERALDAS",
+          department: "4WYAMbyEbSBLnvJXT",
+          address: "BOLIVAR 310 MANUELA CANIZARES Y MEJIA",
+          agency_head: "BRAVO RIVAS TARCYS AMALIA",
+          email: "jefeagesmeraldas@baustro.fin.ec",
+          phone: 969930875,
+          latitude: 0.9645984,
+          longitude: -79.6513757,
+        },
+        {
+          agency: "GIRON",
+          department: "QB2EqcARTJRcf66rr",
+          address: "GARCIA MORENO S/N BOLIVAR",
+          agency_head: "SOLARTE TAPIA DAVID ANTONIO",
+          email: "ofcrgiron@baustro.fin.ec",
+          phone: 969020887,
+          latitude: -3.159841,
+          longitude: -79.1485103,
+        },
+        {
+          agency: "GUALACEO",
+          department: "wzgT2N9X7Y6iXLxMT",
+          address: "3 DE NOVIEMBRE ESQUINA CRISTOBAL COLON",
+          agency_head: "PEREZ BLANDIN MARIA EUGENIA",
+          email: "jefeaggualaceo@baustro.fin.ec",
+          phone: 998088520,
+          latitude: -2.8900742,
+          longitude: -78.7769856,
+        },
+        {
+          agency: "GUAYAQUIL",
+          department: "PFenRNFvWXdSaMsr7",
+          address: "AV. 09 DE OCTUBRE 720 BOYACA ESQUINA",
+          agency_head: "CEVERINO AGUILAR DIOMENES BOLIVAR",
+          email: "jefeagguayaquil@baustro.fin.ec",
+          phone: 998155895,
+          latitude: -2.1908815,
+          longitude: -79.8843351,
+        },
+        {
+          agency: "KENNEDY NORTE",
+          department: "PcXNnpRDpiYv945uk",
+          address: "AV FRANCISCO DE ORELLANA MZ. 102 SL. 3 CALLE SEGUNDA",
+          agency_head: "SIAVICHAY MARTINS ESTEBAN ISRAEL",
+          email: "jakennedy@baustro.fin.ec",
+          phone: 992821543,
+          latitude: -2.1675346,
+          longitude: -79.8958637,
+        },
+        {
+          agency: "AGENCIA VIA A LA COSTA",
+          department: "vQPRL8F9Mg3xRvFa6",
+          address:
+            "Km 10 vía a la costa, Junto a Bosques de la Costa (Frente a Puerto Azul)",
+          agency_head: "BRAVO MORENO OLGA ELIZABETH",
+          email: "jaorellanagye@baustro.fin.ec",
+          phone: 981171503,
+          latitude: -2.1845084934899717,
+          longitude: -79.96705004596612,
+        },
+        {
+          agency: "MALL DEL SUR",
+          department: "XE9NqFhNdjuwXtDRG",
+          address: "AV 25 DE JULIO LOCAL 18 JOSE DE LA CUADRA",
+          agency_head: "NUÑEZ SOLEDISPA ANGELICA LILIANA",
+          email: "jamallsurgye@baustro.fin.ec",
+          phone: 990309769,
+          latitude: -2.2281538,
+          longitude: -79.8982696,
+        },
+        {
+          agency: "IBARRA",
+          department: "Yd4FGBCT8scf3gdg6",
+          address: "COLON 741 BOLIVAR Y OLMEDO",
+          agency_head: "ARELLANO BARRERA MILTON VICENTE",
+          email: "ofcribarra@baustro.fin.ec",
+          phone: 999333306,
+          latitude: 0.3473084,
+          longitude: -78.1195895,
+        },
+        {
+          agency: "LATACUNGA",
+          department: "Ynf77novnhpwzQKph",
+          address: "PEDRO SALCEDO 1719 ENTRE QUITO Y SANCHEZ DE ORELLANA",
+          agency_head: "HERRERA MOLINA MAYTHE ALEJANDRA",
+          email: "ofcrlatacunga1@baustro.fin.ec",
+          phone: 987855213,
+          latitude: -0.9331396,
+          longitude: -78.6153072,
+        },
+        {
+          agency: "LOJA",
+          department: "xzegzcYskngXkTrMn",
+          address: "JOSE ANTONIO EGUIGUREN 1245 BERNARDO VALDIVIESO Y OLMEDO",
+          agency_head: "PADILLA LOAIZA CAROLINA SALOME",
+          email: "jefeagloja@baustro.fin.ec",
+          phone: 968039334,
+          latitude: -3.9961811,
+          longitude: -79.2008488,
+        },
+        {
+          agency: "MACAS",
+          department: "PiE3vStsoLFicaMMi",
+          address: "SOASTY ESQUINA DOMINGO COMIN",
+          agency_head: "PERALTA CORONEL ERIKA VANESSA",
+          email: "ofcrmacas@baustro.fin.ec",
+          phone: 996921181,
+          latitude: -2.3047014,
+          longitude: -78.1195898,
+        },
+        {
+          agency: "MACHALA",
+          department: "bz5kQRruAwdXcHyCq",
+          address: "ROCAFUERTE ESQUINA GUAYAS",
+          agency_head: "ROMERO ROMERO LINDA FERNANDA",
+          email: "jamachala@baustro.fin.ec",
+          phone: 999267014,
+          latitude: -3.259027,
+          longitude: -79.9599439,
+        },
+        {
+          agency: "MANTA",
+          department: "XbFfPYaQCsSGnq7hW",
+          address: "CALLE 7 PRIMER PISO AV 2 Y AV 3",
+          agency_head: "AVALOS ZAMBRANO KAREN MARIANA",
+          email: "kavalos@baustro.fin.ec",
+          phone: 988047088,
+          latitude: -0.9494417,
+          longitude: -80.721467,
+        },
+        {
+          agency: "PASAJE",
+          department: "S2ZuAWdt8anQ4kk6F",
+          address: "SUCRE ESQUINA OCHOA LEON",
+          agency_head: "CHUCHUCA SERRANO SILVIA EUGENIA",
+          email: "jaguabo@baustro.fin.ec",
+          phone: 991150779,
+          latitude: -3.3271818,
+          longitude: -79.8075792,
+        },
+        {
+          agency: "PAUTE",
+          department: "cWgneppmxPH5zajHS",
+          address: "BOLIVAR ESQUINA SUCRE",
+          agency_head: "LEON ORDOÑEZ ANDREA ESTHELA",
+          email: "ofcrpaute@baustro.fin.ec",
+          phone: 987165794,
+          latitude: -2.7791754,
+          longitude: -78.7616929,
+        },
+        {
+          agency: "PUYO",
+          department: "Zaw7JE3PYd2Tp3TtM",
+          address: "AV 10 DE AGOSTO S/N FRANCISCO DE ORELLANA",
+          agency_head: "COLOMA ARCOS CRISTIAN SANTIAGO",
+          email: "ofcreditopuyo@baustro.fin.ec",
+          phone: 998432101,
+          latitude: -1.4871908,
+          longitude: -77.9970917,
+        },
+        {
+          agency: "QUITO",
+          department: "sSinDDeCz6pW2wNnY",
+          address: "AMAZONAS OE3444 SANTA MARIA",
+          agency_head: "RUBIO TAMAYO MARIA DOLORES",
+          email: "jefeaquito@baustro.fin.ec",
+          phone: 987060973,
+          latitude: -0.1992977,
+          longitude: -78.4908502,
+        },
+        {
+          agency: "TUMBACO",
+          department: "Yp29rGLsWZXqJjhb6",
+          address: "AV INTEROCEANICA LT02PB GASPAR CARVAJAL",
+          agency_head: "CARDENAS NAVARRETE JHISELA MARIA",
+          email: "jefedeagenciatumbaco@baustro.fin.ec",
+          phone: 998131955,
+          latitude: -0.2161899,
+          longitude: -78.4034923,
+        },
+        {
+          agency: "SANTA CLARA",
+          department: "s3RWJeGeMgj66A6qF",
+          address: "AV GUSTAVO DARQUEA 1488 VERSALLES",
+          agency_head: "PROAÑO TITUAÑA STALIN SANTIAGO",
+          email: "ofcragsclara1@baustro.fin.ec",
+          phone: 998952018,
+          latitude: -0.2000063,
+          longitude: -78.498882,
+        },
+        {
+          agency: "QUICENTRO SUR",
+          department: "v7DBDu2raGfmmHqKF",
+          address: "AV QUITUMBE NAN LOCAL No.008. 009 RAFAEL MORAN VALVERDE",
+          agency_head: "MEZA VERGARA ANDREA FERNANDA",
+          email: "jaquicentrosur@baustro.fin.ec",
+          phone: 998704121,
+          latitude: -0.2849529,
+          longitude: -78.543607,
+        },
+        {
+          agency: "PORTAL SHOPPING",
+          department: "Yfzd8jYCF6f89Tf4H",
+          address: "AV GALO PLAZA LAZO LOCAL PB017 AV SIMON BOLIVAR",
+          agency_head: "FRANCO UGALDE INGRID XIOMARA",
+          email: "jefeagpshopping@baustro.fin.ec",
+          phone: 993918546,
+          latitude: -0.22107470488260353,
+          longitude: -78.41001704832512,
+        },
+        {
+          agency: "RIOBAMBA",
+          department: "dAm5uDazsavwjRhi8",
+          address: "AV DANIEL LEON BORJA 2370 AV MIGUEL ANGEL LEON",
+          agency_head: "BALSECA BASANTES ALBA ELIZABETH",
+          email: "abalseca@baustro.fin.ec",
+          phone: 992502320,
+          latitude: -1.6680699,
+          longitude: -78.6553619,
+        },
+        {
+          agency: "SAMBORONDON",
+          department: "PiYnhq9j6Y9PLtscp",
+          address: "VIA SAMBORONDON S/N Mz 1 Solar 84",
+          agency_head: "VEGA SOLIS JESSICA KATHERINE",
+          email: "jefagentrerios@baustro.fin.ec",
+          phone: 997132292,
+          latitude: -2.1140423,
+          longitude: -79.8704895,
+        },
+        {
+          agency: "SANTA ISABEL",
+          department: "KGzdTqqsWDTdxdmAF",
+          address: "AV. PASAJE ESQUINA RAFAEL GALARZA",
+          agency_head: "LOJA INGA KARLA SAMANTHA",
+          email: "ofcrstaisabel@baustro.fin.ec",
+          phone: 983627735,
+          latitude: -3.2730599,
+          longitude: -79.3164414,
+        },
+        {
+          agency: "SANTO DOMINGO",
+          department: "mCjWT9xb8QqiHc5B9",
+          address: "AV QUITO 1263 CHORRERA DEL NAPA",
+          agency_head: "JUMBO OROZCO EVELYN VANESSA",
+          email: "credivstodomingo@baustro.fin.ec",
+          phone: 981367713,
+          latitude: -0.2516035,
+          longitude: -79.1645275,
+        },
+        {
+          agency: "SUCUA",
+          department: "eHTXAt2EmqraLwAwH",
+          address: "EDMUNDO CARVAJAL ESQUINA CARLOS OLSON",
+          agency_head: "RAMON LEON IVONNE TATIANA",
+          email: "jefeagsucua@baustro.fin.ec",
+          phone: 999032391,
+          latitude: -2.4565536,
+          longitude: -78.1729894,
+        },
+        {
+          agency: "TENA",
+          department: "AhHtMooAa5Qg5NWCA",
+          address: "AV 15 DE NOVIEMBRE S/N GONZALO DIAZ DE PINEDA",
+          agency_head: "FIALLOS MORENO ALVARO VINICIO",
+          email: "ofcrtena@baustro.fin.ec",
+          phone: 983526034,
+          latitude: -0.991648,
+          longitude: -77.8139783,
+        },
+        {
+          agency: "TULCAN",
+          department: "9wQsbttY35RzLfpdB",
+          address: "SUCRE ESQUINA 10 DE AGOSTO",
+          agency_head: "ROMO PORTILLA GRACE JOHANA",
+          email: "ofcrtulcan3@baustro.fin.ec",
+          phone: 987573322,
+          latitude: 0.8121181,
+          longitude: -77.71796,
+        },
 
-
-        const data = [
-            {
-                "agency": "AMBATO",
-                "department": "u53RSDyPhCASuSfjm",
-                "address": "JUAN LEON MERA 624 SUCRE y BOLIVAR",
-                "agency_head": "RODRIGUEZ CEDEÑO CONCEPCION CATALINA",
-                "email": "ofcrambato4@baustro.fin.ec",
-                "phone": 984279627,
-                "latitude": -1.2412065010276234,
-                "longitude": -78.62826537816727
-            },
-            {
-                "agency": "AG. SUR AZOGUES",
-                "department": "WknYuZiMC5AhQYtx",
-                "address": "AV 24 DE MAYO S/N AV DE LOS ALCALDES",
-                "agency_head": "PESANTEZ DIAZ KARINA ELIZABETH",
-                "email": "jefeagazoguessur@baustro.fin.ec",
-                "phone": 996893510,
-                "latitude": -2.74760124749546,
-                "longitude": -78.84719492639744
-            },
-            {
-                "agency": "CAÑAR",
-                "department": "Py9ocucuyoJ2T4LvG",
-                "address": "ELOY ALFARO S/N PICHINCHA",
-                "agency_head": "FAJARDO MOROCHO KARLA ELIZABETH",
-                "email": "ofcrsanantonio@baustro.fin.ec",
-                "phone": 983086791,
-                "latitude": -0.1465387238695554,
-                "longitude": -78.4693587883034
-            },
-            {
-                "agency": "MATRIZ CUENCA",
-                "department": "Jsf2t42DyjXdz8bBT",
-                "address": "SUCRE ESQUINA BORRERO",
-                "agency_head": "MULLO GONZALEZ PAUL EUSEBIO",
-                "email": "jefeamatriz@baustro.fin.ec",
-                "phone": 995962706,
-                "latitude": -2.898173016526951,
-                "longitude": -79.00311530363413
-            },
-            {
-                "agency": "EL VERGEL",
-                "department": "842eLY8DfPYhWZpP8",
-                "address": "MANUEL J CALLE ESQUINA AV DEL ESTADIO",
-                "agency_head": "BRAVO BLANDIN ADRIAN ALEJANDRO",
-                "email": "jefeagvergel@baustro.fin.ec",
-                "phone": 984880376,
-                "latitude": -2.8488694705426783,
-                "longitude": -78.91631134336302
-            },
-            {
-                "agency": "GONZALEZ SUAREZ",
-                "department": "kRWKsntupgoYomkWo",
-                "address": "AV GONZALEZ SUAREZ ESQUINA CALLE ERNESTO GUEVARA",
-                "agency_head": "ALVARADO GOMEZ DIANA ALEXANDRA",
-                "email": "jefegsuarez@baustro.fin.ec",
-                "phone": 984169881,
-                "latitude": -0.22118550968972997,
-                "longitude": -78.51282369201164
-            },
-            {
-                "agency": "CHALLUABAMBA",
-                "department": "pKc5zabahQNmNdtXj",
-                "address": "AUTOPISTA CUENCA AZOGUES KM 9.5 SIN SECUNDARIA",
-                "agency_head": "CORDERO ROMO JAVIER FRANCISCO",
-                "email": "jefeachaullabamba@baustro.fin.ec",
-                "phone": 995017460,
-                "latitude": -0.07727908330468028,
-                "longitude": -78.48980428306395
-            },
-            {
-                "agency": "DON BOSCO",
-                "department": "KAFHXjh8n7YwaAifC",
-                "address": "AV DON BOSCO S/N MIGUEL DE CERVANTES, ESQ",
-                "agency_head": "NOVILLO BARROS ZOILA ADRIANA",
-                "email": "jadonbosco@baustro.fin.ec",
-                "phone": 998672479,
-                "latitude": 0.03678602689908206,
-                "longitude": -78.4811632339963
-            },
-            {
-                "agency": "GRAN COLOMBIA",
-                "department": "S84rJ42ZLjdLvqZqT",
-                "address": "AV GRAN COLOMBIA 22269 UNIDAD NACIONAL",
-                "agency_head": "BARNUEVO ROMERO VANESSA GIOMANY",
-                "email": "jagrancolombia@baustro.fin.ec",
-                "phone": 999299105,
-                "latitude": -0.2213571697832463,
-                "longitude": -78.51271640364843
-            },
-            {
-                "agency": "ESMERALDAS",
-                "department": "4WYAMbyEbSBLnvJXT",
-                "address": "BOLIVAR 310 MANUELA CANIZARES Y MEJIA",
-                "agency_head": "BRAVO RIVAS TARCYS AMALIA",
-                "email": "jefeagesmeraldas@baustro.fin.ec",
-                "phone": 969930875,
-                "latitude": 0.9648533094976208,
-                "longitude": -79.65132403063424
-            },
-            {
-                "agency": "GIRON",
-                "department": "QB2EqcARTJRcf66rr",
-                "address": "GARCIA MORENO S/N BOLIVAR",
-                "agency_head": "SOLARTE TAPIA DAVID ANTONIO",
-                "email": "ofcrgiron@baustro.fin.ec",
-                "phone": 969020887,
-                "latitude": -0.8462031015679827,
-                "longitude": -80.74353470551361
-            },
-            {
-                "agency": "GUALACEO",
-                "department": "wzgT2N9X7Y6iXLxMT",
-                "address": "3 DE NOVIEMBRE ESQUINA CRISTOBAL COLON",
-                "agency_head": "PEREZ BLANDIN MARIA EUGENIA",
-                "email": "jefeaggualaceo@baustro.fin.ec",
-                "phone": 998088520,
-                "latitude": -0.19862023735992484,
-                "longitude": -78.49106978682445
-            },
-            {
-                "agency": "GUAYAQUIL",
-                "department": "PFenRNFvWXdSaMsr7",
-                "address": "AV. 09 DE OCTUBRE 720 BOYACA ESQUINA",
-                "agency_head": "CEVERINO AGUILAR DIOMENES BOLIVAR",
-                "email": "jefeagguayaquil@baustro.fin.ec",
-                "phone": 998155895,
-                "latitude": -2.1907092834858624,
-                "longitude": -79.88417963247501
-            },
-            {
-                "agency": "KENNEDY NORTE",
-                "department": "PcXNnpRDpiYv945uk",
-                "address": "AV FRANCISCO DE ORELLANA MZ. 102 SL. 3 CALLE SEGUNDA",
-                "agency_head": "SIAVICHAY MARTINS ESTEBAN ISRAEL",
-                "email": "jakennedy@baustro.fin.ec",
-                "phone": 992821543,
-                "latitude": -2.167272675199998,
-                "longitude": -79.89560228829353
-            },
-            {
-                "agency": "AGENCIA VIA A LA COSTA",
-                "department": "vQPRL8F9Mg3xRvFa6",
-                "address": "Km 10 vía a la costa, Junto a Bosques de la Costa (Frente a Puerto Azul)",
-                "agency_head": "BRAVO MORENO OLGA ELIZABETH",
-                "email": "jaorellanagye@baustro.fin.ec",
-                "phone": 981171503,
-                "latitude": -2.1845084934899717,
-                "longitude": -79.96705004596612
-            },
-            {
-                "agency": "MALL DEL SUR",
-                "department": "XE9NqFhNdjuwXtDRG",
-                "address": "AV 25 DE JULIO LOCAL 18 JOSE DE LA CUADRA",
-                "agency_head": "NUÑEZ SOLEDISPA ANGELICA LILIANA",
-                "email": "jamallsurgye@baustro.fin.ec",
-                "phone": 990309769,
-                "latitude": -2.2280230631571984,
-                "longitude": -79.8983118613111
-            },
-            {
-                "agency": "IBARRA",
-                "department": "Yd4FGBCT8scf3gdg6",
-                "address": "COLON 741 BOLIVAR Y OLMEDO",
-                "agency_head": "ARELLANO BARRERA MILTON VICENTE",
-                "email": "ofcribarra@baustro.fin.ec",
-                "phone": 999333306,
-                "latitude": -1.910629416207184,
-                "longitude": -79.52963733666768
-            },
-            {
-                "agency": "LATACUNGA",
-                "department": "Ynf77novnhpwzQKph",
-                "address": "PEDRO SALCEDO 1719 ENTRE QUITO Y SANCHEZ DE ORELLANA",
-                "agency_head": "HERRERA MOLINA MAYTHE ALEJANDRA",
-                "email": "ofcrlatacunga1@baustro.fin.ec",
-                "phone": 987855213,
-                "latitude": -0.14887918716351703,
-                "longitude": -78.42637620954717
-            },
-            {
-                "agency": "LOJA",
-                "department": "xzegzcYskngXkTrMn",
-                "address": "JOSE ANTONIO EGUIGUREN 1245 BERNARDO VALDIVIESO Y OLMEDO",
-                "agency_head": "PADILLA LOAIZA CAROLINA SALOME",
-                "email": "jefeagloja@baustro.fin.ec",
-                "phone": 968039334,
-                "latitude": -3.997056736822799,
-                "longitude": -79.20411855267187
-            },
-            {
-                "agency": "MACAS",
-                "department": "PiE3vStsoLFicaMMi",
-                "address": "SOASTY ESQUINA DOMINGO COMIN",
-                "agency_head": "PERALTA CORONEL ERIKA VANESSA",
-                "email": "ofcrmacas@baustro.fin.ec",
-                "phone": 996921181,
-                "latitude": -3.9955582587786296,
-                "longitude": -79.20077115989369
-            },
-            {
-                "agency": "MACHALA",
-                "department": "bz5kQRruAwdXcHyCq",
-                "address": "ROCAFUERTE ESQUINA GUAYAS",
-                "agency_head": "ROMERO ROMERO LINDA FERNANDA",
-                "email": "jamachala@baustro.fin.ec",
-                "phone": 999267014,
-                "latitude": -2.237789030367477,
-                "longitude": -79.89175816083419
-            },
-            {
-                "agency": "MANTA",
-                "department": "XbFfPYaQCsSGnq7hW",
-                "address": "CALLE 7 PRIMER PISO AV 2 Y AV 3",
-                "agency_head": "AVALOS ZAMBRANO KAREN MARIANA",
-                "email": "kavalos@baustro.fin.ec",
-                "phone": 988047088,
-                "latitude": -0.9492708973119472,
-                "longitude": -80.72157377295478
-            },
-            {
-                "agency": "PASAJE",
-                "department": "S2ZuAWdt8anQ4kk6F",
-                "address": "SUCRE ESQUINA OCHOA LEON",
-                "agency_head": "CHUCHUCA SERRANO SILVIA EUGENIA",
-                "email": "jaguabo@baustro.fin.ec",
-                "phone": 991150779,
-                "latitude": -3.3269801255282125,
-                "longitude": -79.80747963061317
-            },
-            {
-                "agency": "PAUTE",
-                "department": "cWgneppmxPH5zajHS",
-                "address": "BOLIVAR ESQUINA SUCRE",
-                "agency_head": "LEON ORDOÑEZ ANDREA ESTHELA",
-                "email": "ofcrpaute@baustro.fin.ec",
-                "phone": 987165794,
-                "latitude": -3.321654374537639,
-                "longitude": -79.80823443397207
-            },
-            {
-                "agency": "PUYO",
-                "department": "Zaw7JE3PYd2Tp3TtM",
-                "address": "AV 10 DE AGOSTO S/N FRANCISCO DE ORELLANA",
-                "agency_head": "COLOMA ARCOS CRISTIAN SANTIAGO",
-                "email": "ofcreditopuyo@baustro.fin.ec",
-                "phone": 998432101,
-                "latitude": -2.1672941175224545,
-                "longitude": -79.89554864411193
-            },
-            {
-                "agency": "QUITO",
-                "department": "sSinDDeCz6pW2wNnY",
-                "address": "AMAZONAS OE3444 SANTA MARIA",
-                "agency_head": "RUBIO TAMAYO MARIA DOLORES",
-                "email": "jefeaquito@baustro.fin.ec",
-                "phone": 987060973,
-                "latitude": -0.19872515179371206,
-                "longitude": -78.49103674783008
-            },
-            {
-                "agency": "TUMBACO",
-                "department": "Yp29rGLsWZXqJjhb6",
-                "address": "AV INTEROCEANICA LT02PB GASPAR CARVAJAL",
-                "agency_head": "CARDENAS NAVARRETE JHISELA MARIA",
-                "email": "jefedeagenciatumbaco@baustro.fin.ec",
-                "phone": 998131955,
-                "latitude": -0.19350008120740878,
-                "longitude": -78.43845852381537
-            },
-            {
-                "agency": "SANTA CLARA",
-                "department": "s3RWJeGeMgj66A6qF",
-                "address": "AV GUSTAVO DARQUEA 1488 VERSALLES",
-                "agency_head": "PROAÑO TITUAÑA STALIN SANTIAGO",
-                "email": "ofcragsclara1@baustro.fin.ec",
-                "phone": 998952018,
-                "latitude": -0.19806941244271414,
-                "longitude": -78.49911878570859
-            },
-            {
-                "agency": "QUICENTRO SUR",
-                "department": "v7DBDu2raGfmmHqKF",
-                "address": "AV QUITUMBE NAN LOCAL No.008. 009 RAFAEL MORAN VALVERDE",
-                "agency_head": "MEZA VERGARA ANDREA FERNANDA",
-                "email": "jaquicentrosur@baustro.fin.ec",
-                "phone": 998704121,
-                "latitude": -0.2853368840522601,
-                "longitude": -78.54297753248451
-            },
-            {
-                "agency": "PORTAL SHOPPING",
-                "department": "Yfzd8jYCF6f89Tf4H",
-                "address": "AV GALO PLAZA LAZO LOCAL PB017 AV SIMON BOLIVAR",
-                "agency_head": "FRANCO UGALDE INGRID XIOMARA",
-                "email": "jefeagpshopping@baustro.fin.ec",
-                "phone": 993918546,
-                "latitude": -0.22107470488260353,
-                "longitude": -78.41001704832512
-            },
-            {
-                "agency": "RIOBAMBA",
-                "department": "dAm5uDazsavwjRhi8",
-                "address": "AV DANIEL LEON BORJA 2370 AV MIGUEL ANGEL LEON",
-                "agency_head": "BALSECA BASANTES ALBA ELIZABETH",
-                "email": "abalseca@baustro.fin.ec",
-                "phone": 992502320,
-                "latitude": -1.6678298615517322,
-                "longitude": -78.65516106131437
-            },
-            {
-                "agency": "SAMBORONDON",
-                "department": "PiYnhq9j6Y9PLtscp",
-                "address": "VIA SAMBORONDON S/N Mz 1 Solar 84",
-                "agency_head": "VEGA SOLIS JESSICA KATHERINE",
-                "email": "jefagentrerios@baustro.fin.ec",
-                "phone": 997132292,
-                "latitude": -2.106715902039209,
-                "longitude": -79.87235629014819
-            },
-            {
-                "agency": "SANTA ISABEL",
-                "department": "KGzdTqqsWDTdxdmAF",
-                "address": "AV. PASAJE ESQUINA RAFAEL GALARZA",
-                "agency_head": "LOJA INGA KARLA SAMANTHA",
-                "email": "ofcrstaisabel@baustro.fin.ec",
-                "phone": 983627735,
-                "latitude": -3.2728451935610163,
-                "longitude": -79.31650169199474
-            },
-            {
-                "agency": "SANTO DOMINGO",
-                "department": "mCjWT9xb8QqiHc5B9",
-                "address": "AV QUITO 1263 CHORRERA DEL NAPA",
-                "agency_head": "JUMBO OROZCO EVELYN VANESSA",
-                "email": "credivstodomingo@baustro.fin.ec",
-                "phone": 981367713,
-                "latitude": -0.2514541251583848,
-                "longitude": -79.16460104597563
-            },
-            {
-                "agency": "SUCUA",
-                "department": "eHTXAt2EmqraLwAwH",
-                "address": "EDMUNDO CARVAJAL ESQUINA CARLOS OLSON",
-                "agency_head": "RAMON LEON IVONNE TATIANA",
-                "email": "jefeagsucua@baustro.fin.ec",
-                "phone": 999032391,
-                "latitude": -2.4563643566164357,
-                "longitude": -78.17295064411017
-            },
-            {
-                "agency": "TENA",
-                "department": "AhHtMooAa5Qg5NWCA",
-                "address": "AV 15 DE NOVIEMBRE S/N GONZALO DIAZ DE PINEDA",
-                "agency_head": "FIALLOS MORENO ALVARO VINICIO",
-                "email": "ofcrtena@baustro.fin.ec",
-                "phone": 983526034,
-                "latitude": -0.9637389665782908,
-                "longitude": -77.81052944811618
-            },
-            {
-                "agency": "TULCAN",
-                "department": "9wQsbttY35RzLfpdB",
-                "address": "SUCRE ESQUINA 10 DE AGOSTO",
-                "agency_head": "ROMO PORTILLA GRACE JOHANA",
-                "email": "ofcrtulcan3@baustro.fin.ec",
-                "phone": 987573322,
-                "latitude": 0.812336612810511,
-                "longitude": -77.7177040717429
-            },
-
-            /*{
+        /*{
                 "agency": "LA MIA",
                 "department": "9wQsbttY35RzLfpdB",
                 "address": "SUCRE ESQUINA 10 DE AGOSTO",
@@ -428,96 +446,93 @@
                 "latitude": 4.6692469,
                 "longitude": -74.0638966
             }*/
-        ];
+      ];
 
-        function renderMapa() {
-            mapboxgl.accessToken = 'pk.eyJ1IjoiYnJhbmRvbmtlb3MiLCJhIjoiY2xmbHFib2NiMDE1eDQzb2ZyZGhlNG93NCJ9.BJvbB_1PvxsDKSW4LLI-Gg';
-            var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v12',
-                center: [document.getElementById("lng").value, document.getElementById("lat").value],
-                zoom: 11.15
-            });
+      function renderMapa() {
+        mapboxgl.accessToken =
+          "pk.eyJ1IjoiYnJhbmRvbmtlb3MiLCJhIjoiY2xmbHFib2NiMDE1eDQzb2ZyZGhlNG93NCJ9.BJvbB_1PvxsDKSW4LLI-Gg";
+        var map = new mapboxgl.Map({
+          container: "map",
+          style: "mapbox://styles/mapbox/streets-v12",
+          center: [
+            document.getElementById("lng").value,
+            document.getElementById("lat").value,
+          ],
+          zoom: 11.15,
+        });
 
+        const transformada = data.map((item) => ({
+          type: "Feature",
+          properties: {
+            description: `${item.agency} - ${item.address} - ${item.department}`,
+            icon: item.icon ? "theatre" : "rocket",
+          },
+          geometry: {
+            type: "Point",
+            coordinates: [item.longitude, item.latitude],
+          },
+        }));
+        map.addControl(new mapboxgl.NavigationControl());
+        map.on("load", () => {
+          map.addSource("places", {
+            // This GeoJSON contains features that include an "icon"
+            // property. The value of the "icon" property corresponds
+            // to an image in the Mapbox Streets style's sprite.
+            type: "geojson",
+            data: {
+              type: "FeatureCollection",
+              features: transformada,
+            },
+          });
+          // Add a layer showing the places.
+          map.addLayer({
+            id: "places",
+            type: "symbol",
+            source: "places",
+            layout: {
+              "icon-image": ["get", "icon"],
+              "icon-allow-overlap": true,
+            },
+          });
+        });
 
-            const transformada = data.map((item) => ({
-                'type': 'Feature',
-                'properties': {
-                    'description': `${item.agency} - ${item.address} - ${item.department}`,
-                    'icon': item.icon ? 'theatre' : 'rocket'
-                },
-                'geometry': {
-                    'type': 'Point',
-                    'coordinates': [item.longitude, item.latitude]
-                },
-            }));
-            map.addControl(new mapboxgl.NavigationControl());
-            map.on('load', () => {
-                map.addSource('places', {
-                    // This GeoJSON contains features that include an "icon"
-                    // property. The value of the "icon" property corresponds
-                    // to an image in the Mapbox Streets style's sprite.
-                    'type': 'geojson',
-                    'data': {
-                        'type': 'FeatureCollection',
-                        'features': transformada
-                    }
-                });
-                // Add a layer showing the places.
-                map.addLayer({
-                    'id': 'places',
-                    'type': 'symbol',
-                    'source': 'places',
-                    'layout': {
-                        'icon-image': ['get', 'icon'],
-                        'icon-allow-overlap': true
-                    }
-                });
-            });
+        map.on("click", "places", (e) => {
+          // Copy coordinates array.
+          const coordinates = e.features[0].geometry.coordinates.slice();
+          const description = e.features[0].properties.description;
 
-            map.on('click', 'places', (e) => {
-                // Copy coordinates array.
-                const coordinates = e.features[0].geometry.coordinates.slice();
-                const description = e.features[0].properties.description;
+          // Ensure that if the map is zoomed out such that multiple
+          // copies of the feature are visible, the popup appears
+          // over the copy being pointed to.
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
 
-                // Ensure that if the map is zoomed out such that multiple
-                // copies of the feature are visible, the popup appears
-                // over the copy being pointed to.
-                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-                }
+          new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map);
+        });
+      }
 
-                new mapboxgl.Popup()
-                    .setLngLat(coordinates)
-                    .setHTML(description)
-                    .addTo(map);
-            });
-        }
-
-        function agregarMarcador() {
-            var lat = document.getElementById("lat").value;
-            var lng = document.getElementById("lng").value;
-            console.log(lat, lng);
-            const adicional = {
-                "agency": "PERSONALIZADO",
-                "department": "u53RSDyPhCASuSfjm",
-                "address": "JUAN LEON MERA 624 SUCRE y BOLIVAR",
-                "agency_head": "RODRIGUEZ CEDEÑO CONCEPCION CATALINA",
-                "email": "ofcrambato4@baustro.fin.ec",
-                "phone": 984279627,
-                "latitude": lat,
-                "longitude": lng,
-                "icon": 'theatre'
-            };
-            data.push(adicional);
-            renderMapa();
-        }
-
-
-
-
-
+      function agregarMarcador() {
+        var lat = document.getElementById("lat").value;
+        var lng = document.getElementById("lng").value;
+        console.log(lat, lng);
+        const adicional = {
+          agency: "PERSONALIZADO",
+          department: "u53RSDyPhCASuSfjm",
+          address: "JUAN LEON MERA 624 SUCRE y BOLIVAR",
+          agency_head: "RODRIGUEZ CEDEÑO CONCEPCION CATALINA",
+          email: "ofcrambato4@baustro.fin.ec",
+          phone: 984279627,
+          latitude: lat,
+          longitude: lng,
+          icon: "theatre",
+        };
+        data.push(adicional);
+        renderMapa();
+      }
     </script>
-</body>
-
+  </body>
 </html>

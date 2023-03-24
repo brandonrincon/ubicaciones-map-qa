@@ -7,8 +7,8 @@
             "agency_head": "RODRIGUEZ CEDEÑO CONCEPCION CATALINA",
             "email": "ofcrambato4@baustro.fin.ec",
             "phone": 984279627,
-            "latitude": -1.2414587,
-            "longitude": -78.6285062
+            "latitude": -1.2412065010276234,
+            "longitude": -78.62826537816727
         },
         {
             "agency": "AG. SUR AZOGUES",
@@ -17,8 +17,8 @@
             "agency_head": "PESANTEZ DIAZ KARINA ELIZABETH",
             "email": "jefeagazoguessur@baustro.fin.ec",
             "phone": 996893510,
-            "latitude": 2.7478094,
-            "longitude": 78.8474046
+            "latitude": -2.74760124749546,
+            "longitude": -78.84719492639744
         },
         {
             "agency": "CAÑAR",
@@ -37,8 +37,8 @@
             "agency_head": "MULLO GONZALEZ PAUL EUSEBIO",
             "email": "jefeamatriz@baustro.fin.ec",
             "phone": 995962706,
-            "latitude": -2.8983623,
-            "longitude": -79.0035175
+            "latitude": -2.898173016526951,
+            "longitude": -79.00311530363413
         },
         {
             "agency": "EL VERGEL",
@@ -47,8 +47,8 @@
             "agency_head": "BRAVO BLANDIN ADRIAN ALEJANDRO",
             "email": "jefeagvergel@baustro.fin.ec",
             "phone": 984880376,
-            "latitude": -2.907065,
-            "longitude": -79.0051043
+            "latitude": -2.8488694705426783,
+            "longitude": -78.91631134336302
         },
         {
             "agency": "GONZALEZ SUAREZ",
@@ -57,8 +57,8 @@
             "agency_head": "ALVARADO GOMEZ DIANA ALEXANDRA",
             "email": "jefegsuarez@baustro.fin.ec",
             "phone": 984169881,
-            "latitude": -2.8976831,
-            "longitude": -78.9798473
+            "latitude": -0.22118550968972997,
+            "longitude": -78.51282369201164
         },
         {
             "agency": "CHALLUABAMBA",
@@ -67,8 +67,8 @@
             "agency_head": "CORDERO ROMO JAVIER FRANCISCO",
             "email": "jefeachaullabamba@baustro.fin.ec",
             "phone": 995017460,
-            "latitude": -2.854197,
-            "longitude": -78.9168173
+            "latitude": -0.07727908330468028,
+            "longitude": -78.48980428306395
         },
         {
             "agency": "DON BOSCO",
@@ -87,8 +87,8 @@
             "agency_head": "BARNUEVO ROMERO VANESSA GIOMANY",
             "email": "jagrancolombia@baustro.fin.ec",
             "phone": 999299105,
-            "latitude": -2.8921502,
-            "longitude": -79.0205304
+            "latitude": -0.2213571697832463,
+            "longitude": -78.51271640364843
         },
         {
             "agency": "ESMERALDAS",
@@ -97,8 +97,8 @@
             "agency_head": "BRAVO RIVAS TARCYS AMALIA",
             "email": "jefeagesmeraldas@baustro.fin.ec",
             "phone": 969930875,
-            "latitude": 0.9645984,
-            "longitude": -79.6513757
+            "latitude": 0.9648533094976208,
+            "longitude": -79.65132403063424
         },
         {
             "agency": "GIRON",
@@ -107,8 +107,8 @@
             "agency_head": "SOLARTE TAPIA DAVID ANTONIO",
             "email": "ofcrgiron@baustro.fin.ec",
             "phone": 969020887,
-            "latitude": -3.159841,
-            "longitude": -79.1485103
+            "latitude": -0.8462031015679827,
+            "longitude": -80.74353470551361
         },
         {
             "agency": "GUALACEO",
@@ -117,8 +117,8 @@
             "agency_head": "PEREZ BLANDIN MARIA EUGENIA",
             "email": "jefeaggualaceo@baustro.fin.ec",
             "phone": 998088520,
-            "latitude": -2.8900742,
-            "longitude": -78.7769856
+            "latitude": -0.19862023735992484,
+            "longitude": -78.49106978682445
         },
         {
             "agency": "GUAYAQUIL",
@@ -127,8 +127,8 @@
             "agency_head": "CEVERINO AGUILAR DIOMENES BOLIVAR",
             "email": "jefeagguayaquil@baustro.fin.ec",
             "phone": 998155895,
-            "latitude": -2.1908815,
-            "longitude": -79.8843351
+            "latitude": -2.1907092834858624,
+            "longitude": -79.88417963247501
         },
         {
             "agency": "KENNEDY NORTE",
@@ -137,8 +137,8 @@
             "agency_head": "SIAVICHAY MARTINS ESTEBAN ISRAEL",
             "email": "jakennedy@baustro.fin.ec",
             "phone": 992821543,
-            "latitude": -2.1675346,
-            "longitude": -79.8958637
+            "latitude": -2.167272675199998,
+            "longitude": -79.89560228829353
         },
         {
             "agency": "AGENCIA VIA A LA COSTA",
@@ -157,8 +157,8 @@
             "agency_head": "NUÑEZ SOLEDISPA ANGELICA LILIANA",
             "email": "jamallsurgye@baustro.fin.ec",
             "phone": 990309769,
-            "latitude": -2.2281538,
-            "longitude": -79.8982696
+            "latitude": -2.2280230631571984,
+            "longitude": -79.8983118613111
         },
         {
             "agency": "IBARRA",
@@ -167,8 +167,8 @@
             "agency_head": "ARELLANO BARRERA MILTON VICENTE",
             "email": "ofcribarra@baustro.fin.ec",
             "phone": 999333306,
-            "latitude": 0.3473084,
-            "longitude": -78.1195895
+            "latitude": -1.910629416207184,
+            "longitude": -79.52963733666768
         },
         {
             "agency": "LATACUNGA",
@@ -177,8 +177,8 @@
             "agency_head": "HERRERA MOLINA MAYTHE ALEJANDRA",
             "email": "ofcrlatacunga1@baustro.fin.ec",
             "phone": 987855213,
-            "latitude": -0.9331396,
-            "longitude": -78.6153072
+            "latitude": -0.14887918716351703,
+            "longitude": -78.42637620954717
         },
         {
             "agency": "LOJA",
@@ -187,8 +187,8 @@
             "agency_head": "PADILLA LOAIZA CAROLINA SALOME",
             "email": "jefeagloja@baustro.fin.ec",
             "phone": 968039334,
-            "latitude": -3.9961811,
-            "longitude": -79.2008488
+            "latitude": -3.997056736822799,
+            "longitude": -79.20411855267187
         },
         {
             "agency": "MACAS",
@@ -197,8 +197,8 @@
             "agency_head": "PERALTA CORONEL ERIKA VANESSA",
             "email": "ofcrmacas@baustro.fin.ec",
             "phone": 996921181,
-            "latitude": -2.3047014,
-            "longitude": -78.1195898
+            "latitude": -3.9955582587786296,
+            "longitude": -79.20077115989369
         },
         {
             "agency": "MACHALA",
@@ -207,8 +207,8 @@
             "agency_head": "ROMERO ROMERO LINDA FERNANDA",
             "email": "jamachala@baustro.fin.ec",
             "phone": 999267014,
-            "latitude": -3.259027,
-            "longitude": -79.9599439
+            "latitude": -2.237789030367477,
+            "longitude": -79.89175816083419
         },
         {
             "agency": "MANTA",
@@ -217,8 +217,8 @@
             "agency_head": "AVALOS ZAMBRANO KAREN MARIANA",
             "email": "kavalos@baustro.fin.ec",
             "phone": 988047088,
-            "latitude": -0.9494417,
-            "longitude": -80.721467
+            "latitude": -0.9492708973119472,
+            "longitude": -80.72157377295478
         },
         {
             "agency": "PASAJE",
@@ -227,8 +227,8 @@
             "agency_head": "CHUCHUCA SERRANO SILVIA EUGENIA",
             "email": "jaguabo@baustro.fin.ec",
             "phone": 991150779,
-            "latitude": -3.3271818,
-            "longitude": -79.8075792
+            "latitude": -3.3269801255282125,
+            "longitude": -79.80747963061317
         },
         {
             "agency": "PAUTE",
@@ -237,8 +237,8 @@
             "agency_head": "LEON ORDOÑEZ ANDREA ESTHELA",
             "email": "ofcrpaute@baustro.fin.ec",
             "phone": 987165794,
-            "latitude": -2.7791754,
-            "longitude": -78.7616929
+            "latitude": -3.321654374537639,
+            "longitude": -79.80823443397207
         },
         {
             "agency": "PUYO",
@@ -247,8 +247,8 @@
             "agency_head": "COLOMA ARCOS CRISTIAN SANTIAGO",
             "email": "ofcreditopuyo@baustro.fin.ec",
             "phone": 998432101,
-            "latitude": -1.4871908,
-            "longitude": -77.9970917
+            "latitude": -2.1672941175224545,
+            "longitude": -79.89554864411193
         },
         {
             "agency": "QUITO",
@@ -257,8 +257,8 @@
             "agency_head": "RUBIO TAMAYO MARIA DOLORES",
             "email": "jefeaquito@baustro.fin.ec",
             "phone": 987060973,
-            "latitude": -0.1992977,
-            "longitude": -78.4908502
+            "latitude": -0.19872515179371206,
+            "longitude": -78.49103674783008
         },
         {
             "agency": "TUMBACO",
@@ -267,8 +267,8 @@
             "agency_head": "CARDENAS NAVARRETE JHISELA MARIA",
             "email": "jefedeagenciatumbaco@baustro.fin.ec",
             "phone": 998131955,
-            "latitude": -0.2161899,
-            "longitude": -78.4034923
+            "latitude": -0.19350008120740878,
+            "longitude": -78.43845852381537
         },
         {
             "agency": "SANTA CLARA",
@@ -277,8 +277,8 @@
             "agency_head": "PROAÑO TITUAÑA STALIN SANTIAGO",
             "email": "ofcragsclara1@baustro.fin.ec",
             "phone": 998952018,
-            "latitude": -0.2000063,
-            "longitude": -78.498882
+            "latitude": -0.19806941244271414,
+            "longitude": -78.49911878570859
         },
         {
             "agency": "QUICENTRO SUR",
@@ -287,8 +287,8 @@
             "agency_head": "MEZA VERGARA ANDREA FERNANDA",
             "email": "jaquicentrosur@baustro.fin.ec",
             "phone": 998704121,
-            "latitude": -0.2849529,
-            "longitude": -78.543607
+            "latitude": -0.2853368840522601,
+            "longitude": -78.54297753248451
         },
         {
             "agency": "PORTAL SHOPPING",
@@ -307,8 +307,8 @@
             "agency_head": "BALSECA BASANTES ALBA ELIZABETH",
             "email": "abalseca@baustro.fin.ec",
             "phone": 992502320,
-            "latitude": -1.6680699,
-            "longitude": -78.6553619
+            "latitude": -1.6678298615517322,
+            "longitude": -78.65516106131437
         },
         {
             "agency": "SAMBORONDON",
@@ -317,8 +317,8 @@
             "agency_head": "VEGA SOLIS JESSICA KATHERINE",
             "email": "jefagentrerios@baustro.fin.ec",
             "phone": 997132292,
-            "latitude": -2.1140423,
-            "longitude": -79.8704895
+            "latitude": -2.106715902039209,
+            "longitude": -79.87235629014819
         },
         {
             "agency": "SANTA ISABEL",
@@ -327,8 +327,8 @@
             "agency_head": "LOJA INGA KARLA SAMANTHA",
             "email": "ofcrstaisabel@baustro.fin.ec",
             "phone": 983627735,
-            "latitude": -3.2730599,
-            "longitude": -79.3164414
+            "latitude": -3.2728451935610163,
+            "longitude": -79.31650169199474
         },
         {
             "agency": "SANTO DOMINGO",
@@ -337,8 +337,8 @@
             "agency_head": "JUMBO OROZCO EVELYN VANESSA",
             "email": "credivstodomingo@baustro.fin.ec",
             "phone": 981367713,
-            "latitude": -0.2516035,
-            "longitude": -79.1645275
+            "latitude": -0.2514541251583848,
+            "longitude": -79.16460104597563
         },
         {
             "agency": "SUCUA",
@@ -347,8 +347,8 @@
             "agency_head": "RAMON LEON IVONNE TATIANA",
             "email": "jefeagsucua@baustro.fin.ec",
             "phone": 999032391,
-            "latitude": -2.4565536,
-            "longitude": -78.1729894
+            "latitude": -2.4563643566164357,
+            "longitude": -78.17295064411017
         },
         {
             "agency": "TENA",
@@ -357,8 +357,8 @@
             "agency_head": "FIALLOS MORENO ALVARO VINICIO",
             "email": "ofcrtena@baustro.fin.ec",
             "phone": 983526034,
-            "latitude": -0.991648,
-            "longitude": -77.8139783
+            "latitude": -0.9637389665782908,
+            "longitude": -77.81052944811618
         },
         {
             "agency": "TULCAN",
@@ -367,8 +367,8 @@
             "agency_head": "ROMO PORTILLA GRACE JOHANA",
             "email": "ofcrtulcan3@baustro.fin.ec",
             "phone": 987573322,
-            "latitude": 0.8121181,
-            "longitude": -77.71796
+            "latitude": 0.812336612810511,
+            "longitude": -77.7177040717429
         }
     ]
 }
