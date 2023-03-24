@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Our Funky HTML Page</title>
+    <title>Render Data Points</title>
     <meta name="description" content="Our first page">
     <meta name="keywords" content="html tutorial template">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
@@ -10,10 +10,38 @@
 </head>
 
 <body>
-    <div id='map' style='width: 600px; height: 600px;'></div>
-    <input id="lat" placeholder="latitud">
-    <input id="lng" placeholder="longitud">
-    <button onclick="agregarMarcador()">Agregar</button>
+    <style>
+        input {
+            margin: 0.5rem;
+            border-radius: 5px;
+            border-color: #adb9ec;
+            padding: 5px 10px;
+        }
+
+        .btn {
+            border: none;
+            margin: 0.5rem;
+            display: inline-block;
+            font-weight: 700;
+            background-color: #4264fb;
+            font-size: 12px;
+            color: #fff;
+            border-radius: 18px;
+            padding: 6px 18px;
+            text-align: center;
+            -webkit-transition: background-color .125s, border-color .125s, color .125s;
+            transition: background-color .125s, border-color .125s, color .125s;
+        }
+    </style>
+    <section style="display: flex; justify-content: center; align-items: center;flex-flow: column-reverse;">
+        <div id='map' style='width: 600px; height: 600px;'></div>
+        <div style="display:flex;align-items:center;justify-content:center;flex-flow:row;margin-top: 3rem;">
+            <input id="lat" placeholder="latitud">
+            <input id="lng" placeholder="longitud">
+            <button onclick="agregarMarcador()" class="btn">Agregar Marcador</button>
+        </div>
+
+    </section>
 
     <script>
 
@@ -415,7 +443,7 @@
             const transformada = data.map((item) => ({
                 'type': 'Feature',
                 'properties': {
-                    'description': item.agency,
+                    'description': `${item.agency} - ${item.address} - ${item.department}`,
                     'icon': item.icon ? 'theatre' : 'rocket'
                 },
                 'geometry': {
@@ -423,6 +451,7 @@
                     'coordinates': [item.longitude, item.latitude]
                 },
             }));
+            map.addControl(new mapboxgl.NavigationControl());
             map.on('load', () => {
                 map.addSource('places', {
                     // This GeoJSON contains features that include an "icon"
